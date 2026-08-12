@@ -6,7 +6,7 @@ from typing import Literal,Optional
 load_dotenv()
 
 model = init_chat_model(
-    model="gemini-3.6-flash",
+    model="gemini-3.5-flash",
     model_provider="google_genai",
 )
 
@@ -55,6 +55,9 @@ print(f'cons: {result.cons}')
 
 print(type(result))
 
+# JSON output
+print(result.model_dump_json())
+
 '''
 Output:
     key_themes=['Performance', 'Battery and Charging', 'Camera Capabilities', 'Design and Ergonomics', 'Software and Bloatware', 'Price'] summary='The Samsung Galaxy S24 Ultra is an immensely powerful flagship smartphone featuring top-tier performance, outstanding camera features, long battery life, and S-Pen support, though it is held back slightly by its large size, pre-installed bloatware, and high price tag.' sentiment='+ve' pros=['Insanely powerful processor (great for gaming and productivity)', 'Stunning 200MP camera with incredible zoom capabilities', 'Long battery life with fast charging', 'S-Pen support is unique and useful'] cons=['Bulky and heavy: not great for one handed use', 'Bloatware still exists in one UI', 'Expensive compared to competitors'] name='Vivek Sawant'
@@ -66,4 +69,6 @@ Output:
     cons: ['Bulky and heavy: not great for one handed use', 'Bloatware still exists in one UI', 'Expensive compared to competitors']
 
     <class '__main__.Review'>
+
+    {"key_themes":["Performance","Camera Quality","Battery Life","Design and Ergonomics","Software and Bloatware","Pricing"],"summary":"The Samsung Galaxy S24 Ultra is an exceptionally powerful flagship phone featuring a stellar 200MP camera and long battery life, though it suffers from a bulky design, software bloatware, and a high price.","sentiment":"+ve","pros":["Insanely powerful processor (great for gaming and productivity)","Stunning 200MP camera with incredible zoom capabilities","Long battery life with fast charging","S-Pen support is unique and useful"],"cons":["Bulky and heavy: not great for one handed use","Bloatware still exists in one UI","Expensive compared to competitors"],"name":"Vivek Sawant"}
 '''
