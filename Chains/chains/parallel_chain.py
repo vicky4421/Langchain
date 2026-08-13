@@ -42,7 +42,7 @@ parser = StrOutputParser()
 # runnable i think like java runnables create child threads and run them parallely where you provide two chains
 
 parallel_chain = RunnableParallel({
-    # The keys used in this dictionary should match the input variables of prompt input variables as they are input for next chain
+    # The keys used in this dictionary should match the input variables of prompt3 input variables as they are input for next chain
     # chain 1 for notes in dict
     'notes': prompt1 | model1 | parser,
 
